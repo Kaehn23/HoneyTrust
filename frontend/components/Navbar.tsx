@@ -37,11 +37,11 @@ function Navbar() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center justify-center flex-1 text-black uppercase font-bold">
-              <div className="flex space-x-8 bg-[#ffdb16]/80 rounded-full px-6 py-2">
+              <div className="flex space-x-8 bg-[#ffdb16] rounded-full px-6 py-2">
                 <Link 
                   href="/"
                   className={cn(
-                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-[#ffdb16]/10 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
+                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-black"
                   )}
                 >
                   Accueil
@@ -49,7 +49,7 @@ function Navbar() {
                 <Link
                   href="#faq"
                   className={cn(
-                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-[#ffdb16]/10 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
+                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-black"
                   )}
                 >
                   F.A.Q
@@ -57,7 +57,7 @@ function Navbar() {
                 <Link
                   href="#lois-reglementation"
                   className={cn(
-                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-[#ffdb16]/10 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
+                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-black"
                   )}
                 >
                   Lois & Réglementation
@@ -65,7 +65,7 @@ function Navbar() {
                 <Link
                   href="#support"
                   className={cn(
-                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-[#ffdb16]/10 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
+                    "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-black"
                   )}
                 >
                   Support

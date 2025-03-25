@@ -140,7 +140,7 @@ export default function Home() {
                href="/products"
                className="inline-block bg-[#ffdb16] text-black px-8 py-3 rounded-full hover:bg-[#ffdb16]/80 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,219,22,0.5)]"
             >
-               Voir nos produits
+               En savoir plus
             </Link>
          </section>
       </div>
