@@ -13,7 +13,7 @@ const Hero = () => {
         HoneyTrust
       </h1>
       <p className="text-xl text-gray-300 max-w-2xl mx-auto font-semibold">
-        Une solution blockchain révolutionnaire garantissant l'origine et
+        Une solution transparente révolutionnaire garantissant l'origine et
         l'authenticité du miel. Une offre innovante pour les apiculteurs
         et les consommateurs soucieux de la qualité et de l'origine de
         leurs produits.

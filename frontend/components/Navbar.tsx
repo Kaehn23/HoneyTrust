@@ -30,10 +30,11 @@ function Navbar() {
 
    const navigation = [
       { name: "Accueil", href: "/" },
+      { name: "Bien commencer", href: "/bien-commencer" },
       { name: "Lois & Réglementation", href: "/#lois-reglementation" },
       { name: "Avantages", href: "/#avantages" },
       { name: "F.A.Q", href: "/#faq" },
-      { name: "Support", href: "/support" },
+      { name: "Contact", href: "/support" },
    ];
 
    const handleNavigation = (href: string) => {
