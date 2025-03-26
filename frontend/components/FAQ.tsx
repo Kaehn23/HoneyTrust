@@ -57,10 +57,10 @@ const AccordionItem = ({ question, answer, isOpen, onClick }: {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden"
+            className="overflow-hidden bg-black/40"
           >
-            <div className="p-6 pt-0">
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed">{answer}</p>
+            <div className="p-6 pt-4">
+              <p className="text-[#ffdb16]/80 text-base md:text-lg leading-relaxed">{answer}</p>
             </div>
           </motion.div>
         )}
@@ -73,7 +73,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 relative">
+    <section id="faq" className="py-24 relative">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

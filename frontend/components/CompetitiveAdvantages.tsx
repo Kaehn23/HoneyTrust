@@ -26,7 +26,7 @@ const advantages = [
 
 const CompetitiveAdvantages = () => {
   return (
-    <section className="py-24 relative">
+    <section id="avantages" className="py-24 relative">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

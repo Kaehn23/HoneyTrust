@@ -19,7 +19,9 @@ const regulations = [
 
 const RegulatoryContext = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden"
+    id="lois-reglementation"
+    >
       {/* Background image for desktop */}
       <div className="hidden md:block absolute inset-0 w-full h-full">
         <Image
