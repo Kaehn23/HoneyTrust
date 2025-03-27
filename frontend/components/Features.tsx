@@ -56,7 +56,7 @@ const Features = () => {
       description: "Découvrez nos processus rigoureux de contrôle qualité et de certification."
     },
     {
-      image: "/assets/logo.png",
+      image: "/assets/logo.PNG",
       title: "Notre Communauté",
       description: "Rejoignez notre communauté d'apiculteurs et de passionnés de miel."
     },
