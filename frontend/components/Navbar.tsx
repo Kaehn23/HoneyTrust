@@ -1,14 +1,17 @@
-"use client";
+ "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import AppLogo from "./ui/AppLogo";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import ConnectWalletModal from "./ui/ConnectWalletModal";
 
 function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
+   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
    const sidebarRef = useRef<HTMLDivElement>(null);
    const pathname = usePathname();
+   const router = useRouter();
 
    // Handle clicks outside of the sidebar to close it
    useEffect(() => {
@@ -38,10 +41,10 @@ function Navbar() {
    ];
 
    const handleNavigation = (href: string) => {
-      if (href.startsWith('/#')) {
+      if (href.startsWith("/#")) {
          // If we're not on the home page, navigate to home first
-         if (pathname !== '/') {
-            window.location.href = href;
+         if (pathname !== "/") {
+            router.push(href);
          }
       }
       setIsOpen(false);
@@ -68,13 +71,23 @@ function Navbar() {
                               href={item.href}
                               onClick={() => handleNavigation(item.href)}
                               className={cn(
-                                 "text-black font-semibold hover:text-[#ffdb16] px-3 py-2 rounded-full text-sm transition-all duration-300 hover:bg-black"
+                                 "text-black font-semibold hover:text-[#ffdb16] px-3 py-1 rounded-full text-sm transition-all duration-300 hover:bg-black"
                               )}
                            >
                               {item.name}
                            </Link>
                         ))}
                      </div>
+                  </div>
+
+                  {/*Desktop Wallet Connect Button */}
+                  <div className="hidden md:flex items-center ml-4">
+                     <button
+                        onClick={() => setIsWalletModalOpen(true)}
+                        className="bg-[#ffdb16] text-black cursor-pointer font-semibold uppercase px-6 py-2 rounded-full hover:bg-[#ffdb16]/90 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
+                     >
+                        Connecter un wallet
+                     </button>
                   </div>
 
                   {/* Mobile Menu Button */}
@@ -139,10 +152,27 @@ function Navbar() {
                            {item.name}
                         </Link>
                      ))}
+                     <div className="bg-[#ffdb16]/80 rounded-2xl space-y-2">
+                        <button
+                           onClick={() => {
+                              setIsOpen(false);
+                              setIsWalletModalOpen(true);
+                           }}
+                           className="w-full bg-[#ffdb16] text-black cursor-pointer font-semibold uppercase px-6 py-2 rounded-full hover:bg-[#ffdb16]/90 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
+                        >
+                           Connecter un wallet
+                        </button>
+                     </div>
                   </div>
                </div>
             </div>
          )}
+
+         {/* Wallet Connect Modal */}
+         <ConnectWalletModal
+            isOpen={isWalletModalOpen}
+            onClose={() => setIsWalletModalOpen(false)}
+         />
       </nav>
    );
 }

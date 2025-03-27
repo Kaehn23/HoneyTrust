@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 
 const steps = [
   {
+    title: "Solution clé en main",
+    description: "HoneyTrust propose une solution clé en main pour les apiculteurs, sans connaissances techniques requises. Laissez vous guider par notre équipe pour la création de votre compte.",
+  },
+  {
     title: "Inscription rapide",
     description: "Création d'un compte sécurisé avec email et mot de passe, sans connaissances techniques requises.",
   },
