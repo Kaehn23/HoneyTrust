@@ -9,7 +9,7 @@ const Hero = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-[#ffdb16] pb-4">
+      <h1 className="text-4xl md:text-6xl font-bold pt-16 mb-6 bg-clip-text text-transparent bg-[#ffdb16] pb-4">
         HoneyTrust
       </h1>
       <p className="text-xl text-gray-300 max-w-2xl mx-auto font-semibold">
