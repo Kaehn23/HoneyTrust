@@ -1,17 +1,24 @@
- "use client";
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import AppLogo from "./ui/AppLogo";
 import { usePathname, useRouter } from "next/navigation";
-import ConnectWalletModal from "./ui/ConnectWalletModal";
 
 function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
-   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
    const sidebarRef = useRef<HTMLDivElement>(null);
    const pathname = usePathname();
    const router = useRouter();
+
+   // Check if the user is on the dashboard
+   const isOnDashboard = pathname.startsWith('/dashboard');
+
+   // Handle logout function
+   const handleLogout = () => {
+      // Redirect to the home page
+      router.push('/');
+   };
 
    // Handle clicks outside of the sidebar to close it
    useEffect(() => {
@@ -80,13 +87,13 @@ function Navbar() {
                      </div>
                   </div>
 
-                  {/*Desktop Wallet Connect Button */}
+                  {/*Desktop Login/Logout Button */}
                   <div className="hidden md:flex items-center ml-4">
                      <button
-                        onClick={() => setIsWalletModalOpen(true)}
+                        onClick={isOnDashboard ? handleLogout : () => router.push("/auth/login")}
                         className="bg-[#ffdb16] text-black cursor-pointer font-semibold uppercase px-6 py-2 rounded-full hover:bg-[#ffdb16]/90 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
                      >
-                        Connecter un wallet
+                        {isOnDashboard ? "Se déconnecter" : "Se connecter"}
                      </button>
                   </div>
 
@@ -156,23 +163,21 @@ function Navbar() {
                         <button
                            onClick={() => {
                               setIsOpen(false);
-                              setIsWalletModalOpen(true);
+                              if (isOnDashboard) {
+                                 handleLogout();
+                              } else {
+                                 router.push("/auth/login");
+                              }
                            }}
                            className="w-full bg-[#ffdb16] text-black cursor-pointer font-semibold uppercase px-6 py-2 rounded-full hover:bg-[#ffdb16]/90 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)]"
                         >
-                           Connecter un wallet
+                           {isOnDashboard ? "Se déconnecter" : "Se connecter"}
                         </button>
                      </div>
                   </div>
                </div>
             </div>
          )}
-
-         {/* Wallet Connect Modal */}
-         <ConnectWalletModal
-            isOpen={isWalletModalOpen}
-            onClose={() => setIsWalletModalOpen(false)}
-         />
       </nav>
    );
 }

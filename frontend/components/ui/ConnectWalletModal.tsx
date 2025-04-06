@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useAccount } from 'wagmi';
 
 interface ConnectWalletModalProps {
   isOpen: boolean;
@@ -9,6 +10,14 @@ interface ConnectWalletModalProps {
 
 const ConnectWalletModal: React.FC<ConnectWalletModalProps> = ({ isOpen, onClose }) => {
   const router = useRouter();
+  const { isConnected } = useAccount();
+  
+  // Automatically close modal when wallet is connected
+  useEffect(() => {
+    if (isConnected) {
+      onClose();
+    }
+  }, [isConnected, onClose]);
 
   if (!isOpen) return null;
 
@@ -29,15 +38,18 @@ const ConnectWalletModal: React.FC<ConnectWalletModalProps> = ({ isOpen, onClose
         <p className="text-gray-300 mb-6 flex justify-center">Voulez-vous connecter votre wallet ?</p>
         <div className="flex flex-col items-center space-y-4">
           <ConnectButton.Custom>
-            {({ openConnectModal }) => (
+            {({ openConnectModal, account }) => (
               <button
                 onClick={() => {
-                  onClose();
-                  openConnectModal();
+                  if (!account) {
+                    openConnectModal();
+                  } else {
+                    onClose();
+                  }
                 }}
                 className="px-4 py-2 bg-[#ffdb16] cursor-pointer text-black rounded-lg hover:bg-[#ffdb16]/90 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,219,22,0.3)] active:scale-95"
               >
-                Oui
+                {account ? 'Continuer' : 'Oui'}
               </button>
             )}
           </ConnectButton.Custom>

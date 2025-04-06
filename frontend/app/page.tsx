@@ -9,13 +9,14 @@ import RegulatoryContext from "@/components/RegulatoryContext";
 import CompetitiveAdvantages from "@/components/CompetitiveAdvantages";
 import FAQ from "@/components/FAQ";
 
+
 export default function Home() {
    return (
       <div className="container mx-auto px-4 py-8">
-         <Hero />         
+         <Hero />
          <Features />
          <MarketContext />
-         <CallToAction />         
+         <CallToAction />
          <BlockchainSolution />
          <KeyActors />
          <Simplification />
